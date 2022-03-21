@@ -1,0 +1,73 @@
+\documentclass{article}
+
+% page packages
+\usepackage[vmargin=2.5cm,hmargin=1.5cm,paperwidth=10.5cm,paperheight=16.4cm]{geometry}
+\usepackage{pgfpages}
+\usepackage{multicol}
+
+% content packages
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage[object=pgfhan]{pgfornament}
+\usepackage{inconsolata}
+\usepackage{CJKutf8}
+%\definecolor{bg}{HTML}{faf0e6}
+\pagenumbering{gobble}
+
+\begin{document}
+%\pagecolor{bg}
+\newcommand{\cornerorncol}{red!70!black}
+\newcommand{\h}[1]{\textcolor{red!70!black}{#1}}
+
+\newcommand{\recipientA}{{recA}}
+\newcommand{\recipientB}{{recB}}
+
+%\newcommand{\VAR}[1]{}
+
+%% CONTENT %%
+% content border
+\newcommand{\concorn}{23}
+\begin{tikzpicture}[remember picture, overlay]
+   \node[anchor=north west] at (current page.north west){\pgfornament[width=1.75cm,color=\cornerorncol]{\concorn}};
+    \node[anchor=north east] at (current page.north east){\pgfornament[width=1.75cm,color=\cornerorncol,symmetry=v]{\concorn}};
+    \node[anchor=south west] at (current page.south west){\pgfornament[width=1.75cm,color=\cornerorncol,symmetry=h]{\concorn}};
+    \node[anchor=south east] at (current page.south east){\pgfornament[width=1.75cm,color=\cornerorncol,symmetry=c]{\concorn}};
+    \draw [line width=3pt,color=\cornerorncol] ($ (current page.north west) + (1.8cm,-0.39cm) $) -- ($ (current page.north east) + (-1.8cm,-0.39cm) $);
+    \draw [line width=3pt,color=\cornerorncol] ($ (current page.south west) + (1.8cm,0.39cm) $) -- ($ (current page.south east) + (-1.8cm,0.39cm) $);
+    \draw [line width=3pt,color=\cornerorncol] ($ (current page.north west) + (0.39cm,-1.8cm) $) -- ($ (current page.south west) + (0.39cm,1.8cm) $);
+    \draw [line width=3pt,color=\cornerorncol] ($ (current page.north east) + (-0.39cm,-1.8cm) $) -- ($ (current page.south east) + (-0.39cm,1.8cm) $);
+\end{tikzpicture}
+
+% content
+\begin{center}
+    \vspace*{-1cm}
+    Kepada yang terhormat, \\
+    \recipientA \\
+    \recipientB \\
+\end{center}
+
+\smallskip
+    \vspace*{0.5cm}
+    \centering
+    \includegraphics[width=0.4\textwidth]{macan_612x612}
+\newcommand{\chinese}[1]{\begin{CJK}{UTF8}{bsmi}#1\end{CJK}}
+
+\begin{center}
+    \vspace*{-1cm}
+    \fontsize{40}{60}\selectfont \textsc{\h{\chinese{恭喜發財}}}
+\end{center}
+
+\begin{center}
+    \vspace*{0.5cm}
+    Bersama ini kami,
+\end{center}
+\begin{center}
+    {\Large {\textsc{\h{M}onica \h{W}idjasmara}}}\\
+    {\Large {\textsc{\h{\&}}}}\\
+    {\Large {\textsc{\h{H}oward \h{S}etyamukti}}}
+\end{center}
+\smallskip
+mengucapkan Selamat Imlek 2022. 
+Semoga tahun macan ini membawa kebahagiaan dan kesuksesan bagi kita semua!\\
+
+\end{document}
